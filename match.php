@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "sql140979";
+$password = "enter_pass";
 $dbname = "dental";
 
 // Create connection

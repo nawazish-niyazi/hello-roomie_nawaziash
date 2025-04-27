@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Compatibility Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset some default styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        /* Header Styling */
+        h1 {
+            font-size: 3.5rem;
+            color: #4CAF50;
+            text-align: center;
+            margin-bottom: 10px;
+            font-family: "Charm", serif;
+        }
+
+        /* Form Container */
+        form {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Label and Inputs Styling */
+        label {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 20px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            background-color: #fafafa;
+            transition: border 0.3s ease;
+        }
+
+        /* Focus state for input fields */
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        input[type="email"]:focus,
+        select:focus {
+            border: 1px solid #4CAF50;
+            outline: none;
+        }
+
+        /* Submit Button Styling */
+        input[type="submit"] {
+            padding: 15px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        input[type="submit"]:active {
+            background-color: #388e3c;
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            form {
+                width: 90%;
+                padding: 20px;
+            }
+
+            label,
+            input[type="text"],
+            input[type="number"],
+            input[type="email"],
+            select {
+                font-size: 1rem;
+            }
+
+            input[type="submit"] {
+                font-size: 1rem;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>Hello Roomie!!!</h1>
+    <form action="submit.php" method="POST" onsubmit="return validateForm()">
+
+        <h3 id="personal_details" style="color:#333;text-decoration: underline; text-shadow: #333;">Personal Details -</h3>
+        <br>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="18" max="100" required><br><br>
+
+
+        <label for="contact">Contact Number:</label>
+        <input type="text" id="contact" name="contact" pattern="^\d{10}$" title="Enter a valid 10-digit contact number"
+            required><br><br>
+
+     
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <!-- <label for="sex">Sex:</label> -->
+        <p>Sex:</p>
+        <br>
+        <label>Male
+            <input type="radio" id="sex" name="sex" value="Male"></label>
+        <label>Female
+            <input type="radio" id="sex" name="sex" value="Female"></label><br><br>
+        <br><br>
+
+           <!-- course to be added -->
+
+           
+        <p>Course:</p>
+        <br>
+        <label>BDS
+            <input type="radio" id="c1" name="course" value="BDS"></label>
+        <label>MDS
+            <input type="radio" id="c1" name="course" value="MDS"></label>
+        <label>Intern
+            <input type="radio" id="c1" name="course" value="INTERN"></label>
+        <br><br>
+
+        <p>Year/Semester:</p>
+        <br>
+        <label>1<sup>st</sup>Sem
+            <input type="radio" id="year/sem" name="sem" value="1st"></label>
+        <label>2<sup>nd</sup>Sem
+            <input type="radio" id="year/sem" name="sem" value="2nd"></label>
+        <label>3<sup>rd</sup>Sem
+            <input type="radio" id="year/sem" name="sem" value="3rd"></label>
+        <label>4<sup>th</sup>Sem
+            <input type="radio" id="year/sem" name="sem" value="4th"></label>
+        <label>Intern
+                <input type="radio" id="year/sem" name="sem" value="Intern"></label>
+        <br><br>
+
+
+        <h3 id="itrests_dis_intrest" style="color:#333;text-decoration: underline; text-shadow: #333;">Interests/Dis-interests -</h3>
+        <br>
+        <!-- Random Question 1 -->
+        <div class="question">
+            <label for="hobbies">Hobbies :-
+                <input type="text" placeholder="Enter Hobbies----"  id="hobbies" name="hobbies">
+            </label>
+        </div>
+
+        <!-- social_habits -->
+
+         <div class="question"> socail habits
+            <label for="answer1">How do you prefer to spend your weekends?</label>
+            <select name="answer1" id="answer1" required>
+                <option value="">Prefrence</option>
+                <option value="1">Outdoor</option>
+                <option value="2">Indoor</option>
+            </select>
+        </div>
+
+        <!-- Random Question 2 -->
+        <div class="question">
+            <label for="answer2">What is your food habits?</label>
+            <select name="answer2" id="answer2" required>
+                <option value="">Prefrence</option>
+                <option value="1">Veg</option>
+                <option value="2">Non-Veg</option>
+            </select>
+        </div>
+
+        <!-- Random Question 3 -->
+        <div class="question">
+            <label for="answer3">What do you prefere watching?</label>
+            <select name="answer3" id="answer3" required>
+                <option value="">Prefrence</option>
+                <option value="1">Movies</option>
+                <option value="2">Series</option>
+                <option value="3">Both</option>
+            </select>
+        </div>
+
+        <!-- Random Question 4 -->
+        <div class="question">
+            <label for="answer4">Do you like listening music?</label>
+            <select name="answer4" id="answer4" required>
+                <option value="">Prefrence</option>
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+            </select>
+        </div>
+
+        <div class="question">
+            <label for="answer5">What is your favorite music genre?</label>
+            <select name="answer5" id="answer5" required>
+                <option value="">Prefrence</option>
+                <option value="1">Retro</option>
+                <option value="2">Techno</option>
+                <option value="3">bollywood</option>
+                <option value="4">Westeren Music</option>
+                <option value="5">Regional</option>
+            </select>
+        </div>
+
+        <br><br>
+
+        <h3 id="Living Habits" style="color:#333;text-decoration: underline; text-shadow: #333;">Living Habits -</h3>
+        <br>
+        <!-- Random Question 6 -->
+        <div class="question">
+            <label for="answer6">What's your Sleep schedule?</label>
+            <select name="answer6" id="answer6" required>
+                <option value="">Prefrence</option>
+                <option value="1">Night Owl</option>
+                <option value="2">Early Bird</option>
+                <option value="3">Flexible</option>
+            </select>
+        </div>
+
+        <div class="question">
+            <label for="answer7">Cleaning schedule?</label>
+            <select name="answer7" id="answer7" required>
+                <option value="">Prefrence</option>
+                <option value="1">Daily</option>
+                <option value="3">Weakly</option>
+                <option value="2">Flexible</option>
+            </select>
+        </div>
+
+        <div class="question">
+            <label for="answer8">Studying Habits?</label>
+            <select name="answer8" id="answer8" required>
+                <option value="">Prefrence</option>
+                <option value="1">Quiet enviroment</option>
+                <option value="2">Group discussion</option>
+            </select>
+        </div>
+
+        <div class="question">
+            <label for="answer9">Study Time?</label>
+            <select name="answer9" id="answer9" required>
+                <option value="">Prefrence</option>
+                <option value="1">Late Night</option>
+                <option value="2">Early Morning</option>
+                <option value="3">Flexible</option>
+            </select>
+        </div>
+
+        <div class="question">
+            <label for="answer10">How do you feel having a guest/friends over?</label>
+            <select name="answer10" id="answer10" required>
+                <option value="">Prefrence</option>
+                <option value="1">Like</option>
+                <option value="2">Neutral</option>
+                <option value="3">Dislike</option>
+            </select>
+        </div>
+
+        <div class="question">
+            <label for="answer11">Do you prefer sharing groceries and food?</label>
+            <select name="answer11" id="answer11" required>
+                <option value="">Prefrence</option>
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+            </select>
+        </div>
+
+        <h3 id="lifestyle_preferences" style="color:#333;text-decoration: underline; text-shadow: #333;">Lifestyle Preference -</h3>
+        <br>
+        <div class="question">
+            <label for="answer12">Describe your personality as-</label>
+            <select name="answer12" id="answer12" required>
+                <option value="">Prefrence</option>
+                <option value="1">Introvert</option>
+                <option value="2">Extrovert</option>
+                <option value="3">Ambivert</option>
+            </select>
+        </div>
+        <br><br>
+
+        <h3 id="social_habits" style="color:#333;text-decoration: underline; text-shadow: #333;">Social Habits -</h3>
+        <br>
+
+        <div class="question">
+            <label for="answer13">Do you believe in resolving the issues?</label>
+            <select name="answer13" id="answer13" required>
+                <option value="">Prefrence</option>
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+            </select>
+        </div>
+
+        <div class="question">
+            <label for="answer14">How do you prefer to cummunicate about issues?</label>
+            <select name="answer14" id="answer14" required>
+                <option value="">Prefrence</option>
+                <option value="1">Verbally(inperson)</option>
+                <option value="2">Texting</option>
+                <option value="3">Without conveying</option>
+            </select>
+        </div>
+
+        
+
+        <div class="question">
+            <label for="answer15">Do you like going out in weekend?</label>
+            <select name="answer15" id="answer15" required>
+                <option value="">Prefrence</option>
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+            </select>
+        </div>
+
+        <div class="question">
+            <label for="answer16">Will you be okay going out of room while talking on phone?</label>
+            <select name="answer16" id="answer16" required>
+                <option value="">Prefrence</option>
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+            </select>
+        </div>
+
+        <div class="question">
+            <label for="answer17">Are you technical person?</label>
+            <select name="answer17" id="answer17" required>
+                <option value="">Prefrence</option>
+                <option value="1">Yes</option>
+                <option value="2">No</option>
+            </select>
+        </div>
+
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        // Validate the form data before submission
+        function validateForm() {
+            const age = document.getElementById('age').value;
+            const contact = document.getElementById('contact').value;
+            if (age < 18 || age > 100) {
+                alert('Please enter a valid age (18-100).');
+                return false;
+            }
+
+            const contactPattern = /^\d{10}$/;
+            if (!contactPattern.test(contact)) {
+                alert('Please enter a valid 10-digit contact number.');
+                return false;
+            }
+
+            return true; // All validations passed
+        }
+    </script>
+</body>
+
+</html>
